@@ -5,7 +5,7 @@ import java.util.Objects;
 
 public class Pessoa implements Serializable{ //oq é esse serializable?
 	
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;//pra q esse id default?
 	
 	private Integer id;
 	private String nome;
