@@ -9,28 +9,24 @@
 </h:head>
 <h:body>
 
-	<h1>Cadastro de funcionario</h1>
 	<h:form>
-		<h:panelGrid columns="2"> 
-		Nome<h:inputText />
-		Senha <h:inputSecret />
-		Sexo <h:selectOneMenu>
-				<f:selectItem itemLabel="Masculino" itemValue="M" />
-				<f:selectItem itemLabel="Feminino" itemValue="F" />
-				<!-- itemLabel é oq aparece na tela, e o value é oq manda pro servidor -->
-			</h:selectOneMenu>
-		
-		Status <h:selectOneRadio>
-				<f:selectItem itemLabel="Ativo" itemValue="A"/>
-				<f:selectItem itemLabel="Inativo" itemValue="I"/>
-			</h:selectOneRadio>
-			
-			Observações <h:inputTextarea rows="3" cols="20"/>
-			<h:commandButton value="Cadastrar"/>
-
-
+		<h:panelGrid columns="1">
+			<h:outputText value="Nome" />
+			<h:inputText value="#{bean.pessoa.nome}" placeholder="Seu nome aqui"/>
+			<!-- bean (@Named pessoaMB -> acessa o objeto pessoa -> acessa o atributo nome) -->
+			<h:outputText value="Email"/>
+			<h:inputText value="#{bean.pessoa.email}"/>
+			<h:outputText/>
+			<h:commandButton value="Adicionar" action="#{bean.adicionarPessoa}"/>
 		</h:panelGrid>
 	</h:form>
-
+	
+	<h1>Lista de pessoa</h1>
+	
+	<h:dataTable border="1" value="#{bean.pessoas}" var="p"> <!-- lista de pessoas | p é a variavel q percorre a lista -->
+		<h:column>#{p.nome}</h:column>
+		<h:column>#{p.email}</h:column>
+	</h:dataTable>
+	
 </h:body>
 </html>
