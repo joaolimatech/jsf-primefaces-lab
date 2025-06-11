@@ -4,14 +4,15 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.context.SessionScoped;
+import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
 import com.dominio.model.Pessoa;
 
 @Named("bean")
-@SessionScoped
+@RequestScoped
 public class PessoaMB implements Serializable{
 
 	private static final long serialVersionUID = 1L; 
@@ -23,10 +24,15 @@ public class PessoaMB implements Serializable{
 	
 	
 	public String adicionarPessoa() {
+		
+		if(pessoa.getNome().equals(""))
+			return "Nao eh possivel cadastrar";
 		pessoas.add(pessoa);
 		limpar(); //limpar os campos
 		return null;
 	}
+	
+	
 	
 	private void limpar() {
 		pessoa = new Pessoa();

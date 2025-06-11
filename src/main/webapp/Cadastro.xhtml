@@ -5,7 +5,7 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<title>Insert title here</title>
+	<title>Cadastro</title>
 </h:head>
 <h:body>
 
@@ -26,6 +26,9 @@
 	<h:dataTable border="1" value="#{bean.pessoas}" var="p"> <!-- lista de pessoas | p é a variavel q percorre a lista -->
 		<h:column>#{p.nome}</h:column>
 		<h:column>#{p.email}</h:column>
+		<h:column>
+		<h:button value="Editar" outcome="/paginas/sucesso.xhtml?pessoaNome=#{p.nome}"/> <!-- outcome navega entre as paginas. ?pessoaNome é uma variavel q vai ser enviada para a outra pagina -->
+		</h:column>
 	</h:dataTable>
 	
 </h:body>
