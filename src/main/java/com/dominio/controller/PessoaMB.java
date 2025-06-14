@@ -30,7 +30,7 @@ public class PessoaMB implements Serializable{
 			return "Nao eh possivel cadastrar";
 		pessoas.add(pessoa);
 		limpar(); //limpar os campos
-		return null;
+		return null; //"paginas/sucesso"
 	}
 	
 	
