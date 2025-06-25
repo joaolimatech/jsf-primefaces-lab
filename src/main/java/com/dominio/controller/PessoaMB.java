@@ -10,7 +10,13 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.primefaces.event.FileUploadEvent;
+import org.primefaces.model.UploadedFile;
+
 import com.dominio.model.Pessoa;
+
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Named("bean")
 @SessionScoped
@@ -23,6 +29,11 @@ public class PessoaMB implements Serializable{
 
 	private List<Pessoa> pessoas = new ArrayList<>();
 	
+	private UploadedFile file;
+	
+    LocalDateTime sysdate = LocalDateTime.now();
+    DateTimeFormatter horaFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+	
 	
 	public String adicionarPessoa() {
 		
@@ -32,6 +43,16 @@ public class PessoaMB implements Serializable{
 		limpar(); //limpar os campos
 		return null; //"paginas/sucesso"
 	}
+	
+
+	
+	public void handleFileUpload(FileUploadEvent event) { //recebe o arqv uploadado
+		this.file = event.getFile();
+		//application code
+		System.out.println("Arquivo "+file.getFileName()+" recebido com sucesso as "+sysdate.format(horaFormatada));
+		}
+	
+	
 	
 	
 	
