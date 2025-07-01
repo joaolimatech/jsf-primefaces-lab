@@ -18,6 +18,20 @@ public class UploadBean implements Serializable {
 	
 	private UploadedFile file;
 	
+	private boolean flagChamarDownload = false;
+	
+	public void settar() {
+		this.flagChamarDownload =true;
+	}
+
+	public boolean isFlagChamarDownload() {
+		return flagChamarDownload;
+	}
+
+	public void setFlagChamarDownload(boolean flagChamarDownload) {
+		this.flagChamarDownload = flagChamarDownload;
+	}
+
 	public UploadedFile getFile()
 	{
 		return file;
@@ -27,8 +41,7 @@ public class UploadBean implements Serializable {
 		this.file = file;
 	}
 	
-//	public void handleFile() {
-//		if(file!=null) {
+	                                                            
 //			System.out.println("Recebdio "+file.getFileName());
 //		} else {
 //			System.out.println("Nada recebido");

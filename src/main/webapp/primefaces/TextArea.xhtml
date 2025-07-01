@@ -18,14 +18,44 @@
 	<br />
 	<br />
 	<h:form id="form">
-	<p:inputTextarea placeholder="Escreva aqui" rows="5"
-		style="width: 35%;" maxlength="250" counter="qtdCaracteres"
-		counterTemplate="{0} caracteres restantes" />
-	<!-- counter é a id do label q fara isso (msm sentido do for) e counterTemplate o texto que deverá aparecer nesse label({0} é q qtd restante)-->
-	<br />
+		<p:inputTextarea id="idTextArea" value="#{textAreaBean.inputTimes}"
+			placeholder="Escreva aqui" rows="5" style="width: 35%;"
+			maxlength="250" counter="qtdCaracteres"
+			counterTemplate="{0} caracteres restantes" />
+		<h:outputText id="qtdCaracteres" />
 
-	<p:outputLabel id="qtdCaracteres" />
-</h:form>
+		<!-- counter é a id do label q fara isso (msm sentido do for) e counterTemplate o texto que deverá aparecer nesse label({0} é q qtd restante)-->
+
+		<br />
+		<p:commandButton value="Execute" update=":form"
+			actionListener="#{textAreaBean.executar}" style="margin-top:50px;" />
+
+		<p:panel rendered="#{textAreaBean.flagPanelExecutar}" style="margin-top:50px; width:700px;">
+			<p:dataTable id="tableResult" value="#{textAreaBean.lstTimes}"
+				var="i" border="1">
+				<p:column headerText="NOME">
+					<h:outputText value="#{i.nome}" />
+				</p:column>
+				<p:column headerText="FUNDAÇÃO">
+					<h:outputText value="#{i.anoFundacao}" />
+				</p:column>
+				<p:column headerText="TRANSFER FEE">
+					<h:outputText value="#{i.biggestTransferFee}" />
+				</p:column>
+				<p:column headerText="UCL CHAMPION">
+					<h:outputText value="#{i.championsUCL ? 'Sim':'Não'}" />
+				</p:column>
+			</p:dataTable>
+
+			<p:commandButton value="Baixar" icon="ui-icon-arrowthick-1-s"
+				ajax="false" style="margin-top:40px;">
+				<p:dataExporter type="xls" target="tableResult"
+					fileName="times-europeus" />
+			</p:commandButton>
+		</p:panel>
+
+
+	</h:form>
 
 
 </h:body>

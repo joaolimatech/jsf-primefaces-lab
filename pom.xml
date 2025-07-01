@@ -39,6 +39,19 @@
 			<version>6.0</version>
 		</dependency>
 
+		<!-- Apache POI (para XLS/XLSX) -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi-ooxml</artifactId>
+			<version>3.17</version>
+		</dependency>
+
 
 	</dependencies>
 

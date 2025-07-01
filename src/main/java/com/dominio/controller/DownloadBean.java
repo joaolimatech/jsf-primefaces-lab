@@ -22,7 +22,7 @@ public class DownloadBean implements Serializable {
     private StreamedContent file;
     
     
-    {
+  {
     	try {
 			InputStream inputStream = this.getClass().getResourceAsStream("Excecoespdf.pdf"); //nao consegui passando outro caminho, só foi na msm pasta da controller
 			file = new DefaultStreamedContent(inputStream , "application/pdf", "download-prime.pdf");

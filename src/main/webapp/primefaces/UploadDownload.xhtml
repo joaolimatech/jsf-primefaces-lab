@@ -26,14 +26,17 @@
 				fileLimitMessage="Permitido apenas 1 arquivo"
 				messageTemplate="Somente arquivo .txt!" />
 		</p:panelGrid>
+		<p:commandButton value="Executar"
+			actionListener="#{uploadBean.settar}" update=":formExtracao1" />
 	</h:form>
 
 
-	<h:form>
-    <p:commandButton value="Baixar PDF" icon="pi pi-download" ajax="false">
-        <p:fileDownload value="#{downloadBean.file}" />
-    </p:commandButton>
-</h:form>
+	<p:panel id="panel2" rendered="#{uploadBean.flagChamarDownload}">
+		<p:commandButton value="Baixar PDF" icon="pi pi-download" ajax="false">
+			<p:outputLabel value="salve"/>
+		<!-- 	<p:fileDownload value="#{downloadBean.file}" />-->
+		</p:commandButton>
+	</p:panel>
 
 
 

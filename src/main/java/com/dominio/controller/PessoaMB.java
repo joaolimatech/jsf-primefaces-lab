@@ -31,7 +31,21 @@ public class PessoaMB implements Serializable{
 	
 	private UploadedFile file;
 	
-    LocalDateTime sysdate = LocalDateTime.now();
+	private boolean validar1;
+	
+    public boolean isValidar1() {
+		return validar1;
+	}
+
+	public void setValidar1(boolean validar1) {
+		this.validar1 = validar1;
+	}
+	
+	public void metodoValidar() {
+		this.setValidar1(true);
+	}
+
+	LocalDateTime sysdate = LocalDateTime.now();
     DateTimeFormatter horaFormatada = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
 	
 	

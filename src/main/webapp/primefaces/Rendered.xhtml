@@ -21,7 +21,7 @@
 			messageTemplate="Somente arquivo .txt!" 
 			/>
 			<p:commandButton value="Clique aqui para revelar o texto"
-			action="#{renderBean.exibirTexto}" update=":form1"  />
+			actionListener="#{renderBean.exibirTexto}" update=":form1"  />
 
 		<p:panel id="panel1" rendered="#{renderBean.mostrarTexto}"
 			style="width:300px;">
